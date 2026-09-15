@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+  Personal Résumé Webpage — Week 2 Assignment
+  Optional: drop a file named photo.jpg into this folder to show your photo.
+  (If photo.jpg is missing, the photo card hides automatically.)
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人简历 · Personal Résumé</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <p class="header-kicker">Personal Résumé · 个人简历</p>
+      <h1 class="header-name">伟力 · Weili</h1>
+      <p class="header-sub">CS 24 · 2442710013L</p>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <!-- ===== Sidebar: photo + quick facts ===== -->
+    <aside class="sidebar">
+
+      <!-- Photo: if photo.jpg is missing, this whole card hides and layout stays neat -->
+      <section class="card photo-card">
+        <h2 class="card-title">个人照片 <span>Photo</span></h2>
+        <div class="photo-frame">
+          <img src="photo.jpg" alt="我的照片"
+               onerror="this.closest('.photo-card').style.display='none'">
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">快速信息 <span>Quick Facts</span></h2>
+        <ul class="facts">
+          <li><span class="fact-label">学校 / 院系</span><span class="fact-value">School of Artificial Intelligence</span></li>
+          <li><span class="fact-label">国家 / 地区</span><span class="fact-value">中国 · China</span></li>
+          <li><span class="fact-label">语言</span><span class="fact-value">English · 中文</span></li>
+          <li><span class="fact-label">爱好</span><span class="fact-value">Coding, drawing, problem solving, gaming, music</span></li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">关于我 <span>About Me</span></h2>
+        <p class="about-text">I'm a Nigerian CS student in China, passionate about technology, business, and personal growth.</p>
+      </section>
+
+    </aside>
+
+    <!-- ===== Main column: introduction + form ===== -->
+    <div class="main-col">
+
+      <section class="card intro-card">
+        <h2 class="card-title">自我介绍 <span>Introduction</span></h2>
+        <div class="intro-lines">
+          <p class="intro-line">你好，我是伟力。</p>
+          <p class="intro-line">我是 CS 24 班的学生。</p>
+        </div>
+        <button id="speakBtn" class="speak-btn" type="button" aria-label="朗读自我介绍">
+          <span id="speakIcon" class="speak-icon" aria-hidden="true">🔊</span>
+          <span id="speakLabel">播放语音朗读</span>
+        </button>
+        <p id="speakStatus" class="speak-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">个人信息表 <span>Information Form</span></h2>
+        <p class="form-hint">带 <span class="req">*</span> 的为必填项，提交后将打开邮件草稿发送个人信息。</p>
+
+        <form id="resumeForm" novalidate>
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="name">姓名 Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="请输入姓名" required>
+            </div>
+
+            <div class="field">
+              <label for="class">班级 Class <span class="req">*</span></label>
+              <input type="text" id="class" name="class" placeholder="如：软件工程 2301 班" required>
+            </div>
+
+            <div class="field">
+              <label for="studentId">学号 Student ID <span class="req">*</span></label>
+              <input type="text" id="studentId" name="studentId" placeholder="请输入学号" required>
+            </div>
+
+            <div class="field">
+              <label for="school">学校 / 院系 School or Department</label>
+              <input type="text" id="school" name="school" placeholder="如：XX 大学 计算机学院">
+            </div>
+
+            <div class="field">
+              <label for="country">国家 / 地区 Country or Region</label>
+              <input type="text" id="country" name="country" placeholder="如：中国">
+            </div>
+
+            <div class="field">
+              <label for="languages">语言 Languages</label>
+              <input type="text" id="languages" name="languages" placeholder="如：中文、英语">
+            </div>
+
+            <div class="field field-full">
+              <label for="hobbies">爱好 Hobbies</label>
+              <input type="text" id="hobbies" name="hobbies" placeholder="如：编程、篮球、音乐">
+            </div>
+
+            <div class="field field-full">
+              <label for="about">关于我 About Me</label>
+              <textarea id="about" name="about" rows="3" placeholder="用一句话介绍自己"></textarea>
+            </div>
+
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">提交信息</button>
+            <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>本页面使用 HTML + CSS + JavaScript 构建 · 语音朗读由浏览器 Web Speech API 提供</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
